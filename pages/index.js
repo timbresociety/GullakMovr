@@ -60,7 +60,7 @@ const Home = () => {
   const [coinsFrom, setCoinsFrom] = useState([])
   const [coinsTo, setCoinsTo] = useState([])
   const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState('sdf');
 
   const fetchFromTokens = async () => {
 
@@ -399,14 +399,15 @@ const Home = () => {
 
   return (
     <div className='bg-gradient-to-r from-cyan-500 to-blue-500 text-white h-screen overflow-hidden w-full flex items-center justify-center font-sans'>
-      {status && <div className="absolute right-0 top-0 m-7 flex bg-blue-100 rounded-lg p-4 mb-4 text-sm text-blue-700" role="alert">
-        <svg className="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"></path></svg>
-        <div>
-          <span className="font-medium">Info alert!</span> {status}
-        </div>
-      </div>}
+     
       <div className='justify-center shadow-lg bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100  h-[36rem] w-[32rem] rounded-lg text-black p-6 flex flex-col space-y-7 items-center '>
-        <p className='text-2xl font-bold'>Swap/Bridge Tokens </p>
+        {status && <div className="flex bg-blue-100 max-w-lg -mt-10 rounded-lg p-4 mb-4 text-sm text-blue-700" role="alert">
+          <svg className="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"></path></svg>
+          <div>
+            <span className="font-medium">Info alert!</span> {status}
+          </div>
+        </div>}
+        <p className='text-2xl font-bold -mt-10'>Swap/Bridge Tokens </p>
         <div className='mt-4'>
           <div className='flex items-center justify-between space-x-10'>
             <div className='flex-[0.5]'>
