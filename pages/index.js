@@ -61,6 +61,7 @@ const Home = () => {
   const [coinsTo, setCoinsTo] = useState([])
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState('');
+  const [getAmount, setGetAmount] = useState('0')
 
   const fetchFromTokens = async () => {
 
@@ -227,6 +228,7 @@ const Home = () => {
     const route = res.result.routes[0];
     console.log('Route : ', route);
     setStatus('Quote received, Finding the best route to bridge');
+    setGetAmount(route.toAmount)
 
     // Body to be sent in the /route/start request
     let startRouteBody = {
@@ -399,7 +401,7 @@ const Home = () => {
 
   return (
     <div className='bg-gradient-to-r from-cyan-500 to-blue-500 text-white h-screen overflow-hidden w-full flex items-center justify-center font-sans'>
-     
+
       <div className='justify-center shadow-lg bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100  h-[36rem] w-[32rem] rounded-lg text-black p-6 flex flex-col space-y-7 items-center '>
         {status && <div className="flex bg-blue-100 max-w-lg -mt-10 rounded-lg p-4 mb-4 text-sm text-blue-700" role="alert">
           <svg className="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"></path></svg>
@@ -460,11 +462,17 @@ const Home = () => {
 
           </div>
         </div>
-        <div className='mt-4'>
-          <div className='flex justify-between'>
-            <p className='text-sm'>Amount :</p>
+        <div className='mt-4 w-full '>
+          <div className='flex justify-between space-x-4 '>
+            <div className='flex-[0.6]'>
+              <p className='text-sm'>Amount :</p>
+              <input required type='number' className='p-4  hover:border-black border-[1px] rounded-lg  focus:outline-none w-full mt-2' placeholder='Your contribution' value={values.amount} onChange={(e) => setValues({ ...values, amount: e.target.value })} />
+            </div>
+            <div className='flex-[0.4]'>
+              <p className='text-sm'>You will get :</p>
+              <p required type='number' className='p-4 bg-white hover:border-black border-[1px] rounded-lg  focus:outline-none w-full mt-2' placeholder='Your contribution'>{getAmount}</p>
+            </div>
           </div>
-          <input required type='number' className='p-4  hover:border-black border-[1px] rounded-lg  focus:outline-none w-full mt-2' placeholder='Your contribution' value={values.amount} onChange={(e) => setValues({ ...values, amount: e.target.value })} />
 
         </div>
         <button onClick={transaction} className='w-full mt-4 p-3 hover:border-black border-[1px] rounded-lg text-black flex items-center justify-center space-x-4'>
