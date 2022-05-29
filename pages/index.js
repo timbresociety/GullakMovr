@@ -60,7 +60,7 @@ const Home = () => {
   const [coinsFrom, setCoinsFrom] = useState([])
   const [coinsTo, setCoinsTo] = useState([])
   const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState('sdf');
+  const [status, setStatus] = useState();
 
   const fetchFromTokens = async () => {
 
