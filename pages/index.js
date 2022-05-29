@@ -400,7 +400,7 @@ const Home = () => {
 
 
   return (
-    <div className='bg-gradient-to-r from-cyan-500 to-blue-500 text-white h-screen overflow-hidden w-full flex items-center justify-center font-sans'>
+    <div className=' -mt-16 text-white h-screen overflow-hidden w-full flex items-center justify-center font-sans'>
 
       <div className='justify-center shadow-lg bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100  h-[36rem] w-[32rem] rounded-lg text-black p-6 flex flex-col space-y-7 items-center '>
         {status && <div className="flex bg-blue-100 max-w-lg -mt-10 rounded-lg p-4 mb-4 text-sm text-blue-700" role="alert">
